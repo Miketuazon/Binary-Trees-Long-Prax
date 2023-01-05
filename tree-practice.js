@@ -43,7 +43,7 @@ function getHeight (rootNode) {
   // if (!rootNode) return -1
   // if (!rootNode.left && !rootNode.right) return 0
   // let curr = rootNode
-  
+
   //   // count++
   //  if (curr.left){
   //   count++
@@ -54,14 +54,14 @@ function getHeight (rootNode) {
   //   count++
   //   // rootNode = rootNode.right
   //   getHeight(curr.right)
-    
+
   // }
   // return count
 
   if (!rootNode) return -1;
   if (!rootNode.left && !rootNode.right) return 0;
   return 1 + Math.max(getHeight(rootNode.left), getHeight(rootNode.right))
-  
+
   // let height = 0;
   // let queue = [rootNode, null];
 
@@ -80,7 +80,7 @@ function getHeight (rootNode) {
 }
 
 function balancedTree (rootNode) {
-  
+
   let left = Math.max(getHeight(rootNode.left))
   let right = Math.max(getHeight(rootNode.right))
   if (left === right + 1) return true
@@ -88,7 +88,8 @@ function balancedTree (rootNode) {
 }
 
 function countNodes (rootNode) {
-  // Your code here
+  if (!rootNode) return 0;
+  return 1 + countNodes(rootNode.left) + countNodes(rootNode.right)
 }
 
 function getParentNode (rootNode, target) {
